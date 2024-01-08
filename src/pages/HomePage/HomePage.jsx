@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Map from '../../components/Map/Map';
+import Map from '../../components/Map/Map.jsx';
 import Listings from '../../components/Listings/Listings';
 import AddListingForm from '../../components/AddListingForm/AddListingForm';
 import data from '../../db/db.json';

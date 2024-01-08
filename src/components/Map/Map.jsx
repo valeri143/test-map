@@ -4,6 +4,10 @@ import InfoList from '../InfoList/InfoList';
 import { InfoContainer } from '../InfoContainer/InfoContainer';
 import { MapContainer, MapMarker } from './Map.styled';
 
+const API_KEY = import.meta.env.REACT_APP_API_KEY;
+
+console.log(API_KEY);
+
 const Map = ({ fetchedData, selectedListing, onSelectListing }) => {
   const [visibleListings, setVisibleListings] = useState([]);
   const [center, setCenter] = useState({ lat: 0, lng: 0 });
@@ -69,7 +73,7 @@ const Map = ({ fetchedData, selectedListing, onSelectListing }) => {
   return (
     <MapContainer>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyDFQMHQh4fBaF0z1iTq-RtCEXYeGk0QG3w' }}
+        bootstrapURLKeys={{ key: { API_KEY } }}
         zoom={zoom}
         center={center}
         onChange={({ center, zoom, bounds }) =>

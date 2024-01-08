@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
 env:
-  VITE_API_TEST: ${{secrets.VITE_API_TEST}}
+  REACT_APP_API_KEY: ${{secrets.REACT_APP_API_KEY}}
 
 jobs:
   build-and-deploy:
