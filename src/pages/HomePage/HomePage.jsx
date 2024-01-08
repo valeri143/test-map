@@ -29,7 +29,7 @@ const HomePage = () => {
   };
 
   const handleAddListing = (newListing) => {
-    setListings([...listings, newListing]);
+    setFetchedData((prevListings) => [...prevListings, newListing]);
   };
 
   return (

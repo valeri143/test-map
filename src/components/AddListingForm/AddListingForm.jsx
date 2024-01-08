@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { nanoid } from 'nanoid';
 import {
   FormContainer,
   StyledForm,
@@ -15,7 +16,7 @@ const AddListingForm = ({ onAddListing }) => {
       title: '',
     },
     onSubmit: (values) => {
-      onAddListing(values);
+      onAddListing({ ...values, id: nanoid() });
       formik.resetForm();
     },
   });
