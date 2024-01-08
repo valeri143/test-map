@@ -9,9 +9,16 @@ export const MapContainer = styled.div`
 
 export const MapMarker = styled.div`
   position: absolute;
-  background-color: #3498db;
-  color: #fff;
-  padding: 5px;
+  background-color: red;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  left: ${(props) => props.$lat}px;
+  top: ${(props) => props.$lng}px;
 `;

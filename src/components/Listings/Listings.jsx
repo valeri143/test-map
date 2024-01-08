@@ -7,19 +7,21 @@ import {
 
 const Listings = ({ listings, onSelectListing }) => {
   return (
-    <ListingsContainer>
-      <ListingsHeader>Listings</ListingsHeader>
-      <ListingsList>
-        {listings.map((listing) => (
-          <ListingsItem
-            key={listing.id}
-            onClick={() => onSelectListing(listing)}
-          >
-            {listing.title}
-          </ListingsItem>
-        ))}
-      </ListingsList>
-    </ListingsContainer>
+    listings.length !== 0 && (
+      <ListingsContainer>
+        <ListingsHeader>Переглянуті</ListingsHeader>
+        <ListingsList>
+          {listings.map((listing) => (
+            <ListingsItem
+              key={listing.id}
+              onClick={() => onSelectListing(listing)}
+            >
+              {listing.title}
+            </ListingsItem>
+          ))}
+        </ListingsList>
+      </ListingsContainer>
+    )
   );
 };
 

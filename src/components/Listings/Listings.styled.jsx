@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
 export const ListingsContainer = styled.div`
-  max-width: 300px;
-  margin: 0 auto;
+  margin-left: 15px;
 `;
 
 export const ListingsHeader = styled.h2`
-  text-align: center;
   color: #3498db;
 `;
 
 export const ListingsList = styled.ul`
-  list-style: none;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
 `;
