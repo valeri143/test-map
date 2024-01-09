@@ -14,6 +14,7 @@ const AddListingForm = ({ onAddListing }) => {
       lat: '',
       lng: '',
       title: '',
+      description: '',
     },
     onSubmit: (values) => {
       onAddListing({ ...values, id: nanoid() });
@@ -48,6 +49,15 @@ const AddListingForm = ({ onAddListing }) => {
             type="text"
             name="title"
             value={formik.values.title}
+            onChange={formik.handleChange}
+          />
+        </StyledLabel>
+        <StyledLabel>
+          Description:
+          <StyledInput
+            type="text"
+            name="description"
+            value={formik.values.description}
             onChange={formik.handleChange}
           />
         </StyledLabel>

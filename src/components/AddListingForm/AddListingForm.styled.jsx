@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   max-width: 300px;
-  margin: 0 auto;
+  margin-left: 15px;
+  margin-top: 20px;
 `;
 
 export const StyledForm = styled.form`

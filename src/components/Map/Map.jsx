@@ -73,6 +73,7 @@ const Map = ({ fetchedData, selectedListing, onSelectListing }) => {
   return (
     <MapContainer>
       <GoogleMapReact
+        key={fetchedData.length}
         bootstrapURLKeys={{ key: 'AIzaSyDFQMHQh4fBaF0z1iTq-RtCEXYeGk0QG3w' }}
         zoom={zoom}
         center={center}

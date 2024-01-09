@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Map from '../../components/Map/Map.jsx';
 import Listings from '../../components/Listings/Listings';
 import AddListingForm from '../../components/AddListingForm/AddListingForm';
-import data from '../../db/db.json';
+import dataFromFile from '../../db/db.json';
 
 const HomePage = () => {
   const [fetchedData, setFetchedData] = useState([]);
@@ -10,8 +10,27 @@ const HomePage = () => {
   const [selectedListing, setSelectedListing] = useState(null);
 
   useEffect(() => {
+    const data = getDataFromLocal('data');
+    if (data.length === 0) {
+      saveDataToLocal('data', dataFromFile);
+    }
     setFetchedData(data);
-  }, [listings]);
+  }, []);
+
+  const saveDataToLocal = (key, data) => {
+    localStorage.setItem(key, JSON.stringify(data));
+  };
+
+  const getDataFromLocal = (key) => {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : [];
+  };
+
+  const handleAddListing = (newListing) => {
+    const updatedData = [...getDataFromLocal(), newListing];
+    saveDataToLocal(updatedData);
+    setFetchedData(updatedData);
+  };
 
   const handleSelectListing = (listing) => {
     setSelectedListing(listing);
@@ -26,10 +45,6 @@ const HomePage = () => {
 
   const handleListing = (listing) => {
     setSelectedListing(listing);
-  };
-
-  const handleAddListing = (newListing) => {
-    setFetchedData((prevListings) => [...prevListings, newListing]);
   };
 
   return (
